@@ -155,12 +155,12 @@ export default {
             console.log("error:", err);
             alert("上传失败");
           });
-        let formData = new FormData();
-        formData.append(
-          "imageUrl",
-          "https://images-share-seig.oss-cn-guangzhou.aliyuncs.com/" + fileName
-        );
-        formData.append("imageName", this.imageName);
+        
+        const formData = {
+          'imageUrl': "https://images-share-seig.oss-cn-guangzhou.aliyuncs.com/" + fileName,
+          'imageName': this.imageName
+        }
+
         if (this.imageName != "") {
           this.axios
             .post("/api/image/add", formData)
